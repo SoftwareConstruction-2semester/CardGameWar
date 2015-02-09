@@ -29,6 +29,11 @@ namespace CardGameWar
             throw new NotImplementedException();
         }
 
+        IEnumerator<ICard> IEnumerable<ICard>.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
         public override string ToString()
         {
             return String.Join(", \n", cards);
@@ -39,7 +44,7 @@ namespace CardGameWar
             return GetEnumerator();
         }
 
-        public void Add(IDeck item)
+        public void Add(ICard item)
         {
             throw new NotImplementedException();
         }
@@ -49,17 +54,17 @@ namespace CardGameWar
             throw new NotImplementedException();
         }
 
-        public bool Contains(IDeck item)
+        public bool Contains(ICard item)
         {
             throw new NotImplementedException();
         }
 
-        public void CopyTo(IDeck[] array, int arrayIndex)
+        public void CopyTo(ICard[] array, int arrayIndex)
         {
             throw new NotImplementedException();
         }
 
-        public bool Remove(IDeck item)
+        public bool Remove(ICard item)
         {
             throw new NotImplementedException();
         }

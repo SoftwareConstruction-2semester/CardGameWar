@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CardGameWar
 {
-    internal interface IDeck : ICollection<IDeck>
+    internal interface IDeck : ICollection<ICard>
     {
     }
 }
