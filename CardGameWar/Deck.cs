@@ -24,17 +24,42 @@ namespace CardGameWar
             }
         }
 
+        public IEnumerator<IDeck> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
         public override string ToString()
         {
             return String.Join(", \n", cards);
         }
 
-        public IEnumerator GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public void Add(IDeck item)
         {
             throw new NotImplementedException();
         }
 
-        public void CopyTo(Array array, int index)
+        public void Clear()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Contains(IDeck item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CopyTo(IDeck[] array, int arrayIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(IDeck item)
         {
             throw new NotImplementedException();
         }
@@ -44,12 +69,7 @@ namespace CardGameWar
             get { throw new NotImplementedException(); }
         }
 
-        public object SyncRoot
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public bool IsSynchronized
+        public bool IsReadOnly
         {
             get { throw new NotImplementedException(); }
         }

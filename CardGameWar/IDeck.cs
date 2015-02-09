@@ -1,8 +1,9 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace CardGameWar
 {
-    internal interface IDeck : ICollection
+    internal interface IDeck : ICollection<IDeck>
     {
     }
 }
