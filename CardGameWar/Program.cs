@@ -34,7 +34,7 @@ namespace CardGameWar
                 Console.WriteLine("Plyer 1: "+_p1.CurrentCard);
                 Console.WriteLine("Plyer 2: " + _p2.CurrentCard);
                 if (_p1.CurrentCard.Value > _p2.CurrentCard.Value) Console.WriteLine("player 1 wins");
-                if (_p1.CurrentCard.Value < _p2.CurrentCard.Value) Console.WriteLine("player 2 wins");
+                else if (_p1.CurrentCard.Value < _p2.CurrentCard.Value) Console.WriteLine("player 2 wins");
                 else Console.WriteLine("War");
                 
             }
