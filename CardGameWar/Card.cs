@@ -51,7 +51,7 @@ namespace CardGameWar
             set { _value = value; }
         }
 
-        public override string ToString()
+        public override String ToString()
         {
             return Value.ToString() + " " + Suit.ToString();
         }

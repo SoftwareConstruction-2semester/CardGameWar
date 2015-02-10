@@ -24,14 +24,9 @@ namespace CardGameWar
             }
         }
 
-        public IEnumerator<IDeck> GetEnumerator()
+        public IEnumerator<ICard> GetEnumerator()
         {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator<ICard> IEnumerable<ICard>.GetEnumerator()
-        {
-            throw new NotImplementedException();
+            return cards.GetEnumerator();
         }
 
         public override string ToString()
@@ -44,39 +39,83 @@ namespace CardGameWar
             return GetEnumerator();
         }
 
+
         public void Add(ICard item)
         {
-            throw new NotImplementedException();
+            cards.Add(item);
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            cards.Clear();
         }
 
         public bool Contains(ICard item)
         {
-            throw new NotImplementedException();
+            return cards.Contains(item);
         }
 
         public void CopyTo(ICard[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            cards.CopyTo(array, arrayIndex);
         }
 
         public bool Remove(ICard item)
         {
-            throw new NotImplementedException();
+            return cards.Remove(item);
         }
 
         public int Count
         {
-            get { throw new NotImplementedException(); }
+            get { return cards.Count; }
         }
 
         public bool IsReadOnly
         {
-            get { throw new NotImplementedException(); }
+            get { return false; }
+        }
+
+        public IDeck[] split(int numberOfDecks)
+        {
+           IDeck[] decks = new IDeck[numberOfDecks];
+           for (int i = 0; i < (cards.Count/numberOfDecks); i++)
+           {
+               for (int j = 0; j < numberOfDecks; j++)
+               {
+                   decks[j].Add(DealCard());
+               }   
+           }
+           // the remaining cards
+           for (int i = 0; i < cards.Count; i++)
+           {
+               decks[i].Add(DealCard());
+           }
+
+            return decks;
+        }
+
+        public ICard DealCard()
+        {
+            ICard c = cards[0];
+            cards.Remove(c);
+            return c;
+        }
+
+        public ICard[] DealCards(int numnerOfCards)
+        {
+            ICard[] cards = new ICard[numnerOfCards];
+            for (int i = 0; i < numnerOfCards; i++)
+            {
+                cards[i] = DealCard();
+            }
+            return cards;
+        }
+
+        public void Shuffle()
+        {
+            var rnd = new Random();
+            var result = cards.OrderBy(item => rnd.Next());
+            cards= new List<ICard>(result);
         }
     }
 }
