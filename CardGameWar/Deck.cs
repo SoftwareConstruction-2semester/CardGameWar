@@ -81,6 +81,7 @@ namespace CardGameWar
             for (int i = 0; i < numberOfDecks; i++)
             {
                     decks[i] = new Deck();
+                    decks[i].Clear();
             }
 
             while (cards.Count >numberOfDecks)

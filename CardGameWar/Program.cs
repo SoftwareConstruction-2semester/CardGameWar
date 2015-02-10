@@ -31,7 +31,12 @@ namespace CardGameWar
             {
                 _p1.CurrentCard = _p1.Hand.DealCard();
                 _p2.CurrentCard = _p2.Hand.DealCard();
-
+                Console.WriteLine("Plyer 1: "+_p1.CurrentCard);
+                Console.WriteLine("Plyer 2: " + _p2.CurrentCard);
+                if (_p1.CurrentCard.Value > _p2.CurrentCard.Value) Console.WriteLine("player 1 wins");
+                if (_p1.CurrentCard.Value < _p2.CurrentCard.Value) Console.WriteLine("player 2 wins");
+                else Console.WriteLine("War");
+                
             }
 
         }
@@ -42,6 +47,7 @@ namespace CardGameWar
             IDeck[] splitdeck = _deck.split(2);
             _p1.Hand = splitdeck[0];
             _p2.Hand = splitdeck[1];
+            
 
         }
     }
