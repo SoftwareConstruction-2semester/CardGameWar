@@ -77,21 +77,44 @@ namespace CardGameWar
 
         public IDeck[] split(int numberOfDecks)
         {
-           IDeck[] decks = new IDeck[numberOfDecks];
-           for (int i = 0; i < (cards.Count/numberOfDecks); i++)
-           {
-               for (int j = 0; j < numberOfDecks; j++)
-               {
-                   decks[j].Add(DealCard());
-               }   
-           }
-           // the remaining cards
-           for (int i = 0; i < cards.Count; i++)
-           {
-               decks[i].Add(DealCard());
-           }
+            IDeck[] decks = new IDeck[numberOfDecks];
+            for (int i = 0; i < numberOfDecks; i++)
+            {
+                    decks[i] = new Deck();
+            }
 
+            while (cards.Count >numberOfDecks)
+            {
+                foreach (var deck in decks)
+                {
+                    deck.Add(DealCard());
+                }
+            }
+            foreach (var deck in decks)
+            {
+                if (cards.Count > 0)
+                {
+                    deck.Add(DealCard());
+                }
+            }
             return decks;
+
+
+            //IDeck[] decks = new IDeck[numberOfDecks];
+            //for (int i = 0; i < (cards.Count/numberOfDecks); i++)
+            //{
+            //    for (int j = 0; j < numberOfDecks; j++)
+            //    {
+            //        decks[j].Add(DealCard());
+            //    }   
+            //}
+            //// the remaining cards
+            //for (int i = 0; i < cards.Count; i++)
+            //{
+            //    decks[i].Add(DealCard());
+            //}
+
+            // return decks;
         }
 
         public ICard DealCard()

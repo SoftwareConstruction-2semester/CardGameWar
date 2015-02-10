@@ -51,6 +51,11 @@ namespace CardGameWar
             set { _value = value; }
         }
 
+        public int CompareTo(ICard other)
+        {
+            return Value.CompareTo(other.Value);
+        }
+
         public override String ToString()
         {
             return Value.ToString() + " " + Suit.ToString();
